@@ -1,0 +1,25 @@
+{
+  "name": "my-mvp-project",
+  "version": "1.0.0",
+  "description": "Landing page for Your-MVP with Telegram bot integration",
+  "main": "api/send.js",
+  "scripts": {
+    "start": "node api/send.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-telegram-bot-api": "^0.66.0",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "overrides": {
+    "request": {
+      "form-data": "^2.5.4",
+      "tough-cookie": "^4.1.3"
+    }
+  }
+}

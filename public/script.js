@@ -24,7 +24,7 @@ function updateLanguage(lang) {
   document.documentElement.lang = lang;
 }
 
-// Form submission to Telegram bot
+// Form submission to server
 const form = document.getElementById('mvp-form');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
