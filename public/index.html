@@ -374,16 +374,68 @@
                   required
                 />
               </div>
-              <div class="mb-4">
+              <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="w-full bg-gray-800/50 border border-gray-600 rounded-lg py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  data-lang-placeholder="placeholder_email"
+                  placeholder="Email"
+                />
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="w-full bg-gray-800/50 border border-gray-600 rounded-lg py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  data-lang-placeholder="placeholder_phone"
+                  placeholder="Номер телефона"
+                />
+              </div>
+              <div class="grid md:grid-cols-2 gap-4 mb-4">
                 <input
                   type="text"
-                  id="contact"
-                  name="contact"
+                  id="telegram"
+                  name="telegram"
                   class="w-full bg-gray-800/50 border border-gray-600 rounded-lg py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  data-lang-placeholder="placeholder_contact"
-                  placeholder="Ваш Email или Telegram"
-                  required
+                  data-lang-placeholder="placeholder_telegram"
+                  placeholder="Имя пользователя Telegram"
                 />
+                <input
+                  type="text"
+                  id="other_contact"
+                  name="other_contact"
+                  class="w-full bg-gray-800/50 border border-gray-600 rounded-lg py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  data-lang-placeholder="placeholder_other"
+                  placeholder="Другой способ связи"
+                />
+              </div>
+              <div class="mb-4 text-left">
+                <label
+                  for="preferred_contact"
+                  class="block text-gray-400 mb-2 text-sm"
+                  data-lang="label_preferred_contact"
+                  >Предпочтительный способ связи:</label
+                >
+                <select
+                  id="preferred_contact"
+                  name="preferred_contact"
+                  class="w-full bg-gray-800/50 border border-gray-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  <option value="" data-lang="option_none">
+                    -- Выберите опцию --
+                  </option>
+                  <option value="Email" data-lang="option_email">Email</option>
+                  <option value="Телефон" data-lang="option_phone">
+                    Телефон
+                  </option>
+                  <option value="Telegram" data-lang="option_telegram">
+                    Telegram
+                  </option>
+                  <option value="Другое" data-lang="option_other">
+                    Другое
+                  </option>
+                </select>
               </div>
               <div class="mb-6">
                 <textarea
@@ -475,7 +527,16 @@
           cta_subtitle:
             "Получите бесплатную оценку стоимости и сроков вашего проекта. Я также подскажу, как можно сократить затраты времени и денег без потери качества.",
           placeholder_name: "Ваше имя",
-          placeholder_contact: "Ваш Email или Telegram",
+          placeholder_email: "Ваш Email",
+          placeholder_phone: "Номер телефона",
+          placeholder_telegram: "Имя пользователя Telegram",
+          placeholder_other: "Другой способ связи",
+          label_preferred_contact: "Предпочтительный способ связи:",
+          option_none: "-- Выберите опцию --",
+          option_email: "Email",
+          option_phone: "Телефон",
+          option_telegram: "Telegram",
+          option_other: "Другое",
           placeholder_idea: "Кратко опишите вашу идею...",
           cta_button: "Обсудить проект (бесплатно)",
           footer_text: "Команда за час. Продукт за недели.",
@@ -483,7 +544,8 @@
             "✅ Спасибо! Ваша заявка отправлена. Скоро я с вами свяжусь.",
           form_error:
             "❌ Ошибка! Что-то пошло не так. Попробуйте позже или свяжитесь со мной напрямую.",
-          form_fill_fields: "Пожалуйста, заполните все поля.",
+          form_fill_fields: "Пожалуйста, заполните все обязательные поля.",
+          form_fill_contact: "Пожалуйста, укажите хотя бы один способ связи.",
           form_token_error:
             "Ошибка конфигурации: неверный токен Telegram-бота или Chat ID.",
         },
@@ -536,7 +598,16 @@
           cta_subtitle:
             "Get a free estimate of the cost and timeline for your project. I will also provide tips on how to reduce time and money costs without sacrificing quality.",
           placeholder_name: "Your Name",
-          placeholder_contact: "Your Email or Telegram",
+          placeholder_email: "Your Email",
+          placeholder_phone: "Phone Number",
+          placeholder_telegram: "Telegram Username",
+          placeholder_other: "Other Contact Method",
+          label_preferred_contact: "Preferred Contact Method:",
+          option_none: "-- Select an option --",
+          option_email: "Email",
+          option_phone: "Phone",
+          option_telegram: "Telegram",
+          option_other: "Other",
           placeholder_idea: "Briefly describe your idea...",
           cta_button: "Discuss the Project (Free)",
           footer_text: "A team in an hour. A product in weeks.",
@@ -544,7 +615,8 @@
             "✅ Thank you! Your request has been sent. I will contact you soon.",
           form_error:
             "❌ Error! Something went wrong. Please try again later or contact me directly.",
-          form_fill_fields: "Please fill in all the fields.",
+          form_fill_fields: "Please fill in all required fields.",
+          form_fill_contact: "Please provide at least one contact method.",
           form_token_error:
             "Configuration error: Invalid Telegram Bot Token or Chat ID.",
         },
@@ -600,7 +672,16 @@
           cta_subtitle:
             "Erhalten Sie eine kostenlose Schätzung der Kosten und des Zeitplans für Ihr Projekt. Ich gebe Ihnen auch Tipps, wie Sie Zeit- und Geldkosten ohne Qualitätseinbußen reduzieren können.",
           placeholder_name: "Ihr Name",
-          placeholder_contact: "Ihre E-Mail oder Ihr Telegram",
+          placeholder_email: "Ihre E-Mail",
+          placeholder_phone: "Telefonnummer",
+          placeholder_telegram: "Telegram-Benutzername",
+          placeholder_other: "Andere Kontaktmethode",
+          label_preferred_contact: "Bevorzugte Kontaktmethode:",
+          option_none: "-- Wählen Sie eine Option --",
+          option_email: "E-Mail",
+          option_phone: "Telefon",
+          option_telegram: "Telegram",
+          option_other: "Andere",
           placeholder_idea: "Beschreiben Sie kurz Ihre Idee...",
           cta_button: "Projekt besprechen (kostenlos)",
           footer_text: "Ein Team in einer Stunde. Ein Produkt in Wochen.",
@@ -608,7 +689,9 @@
             "✅ Danke! Ihre Anfrage wurde gesendet. Ich werde mich bald bei Ihnen melden.",
           form_error:
             "❌ Fehler! Etwas ist schief gelaufen. Bitte versuchen Sie es später erneut oder kontaktieren Sie mich direkt.",
-          form_fill_fields: "Bitte füllen Sie alle Felder aus.",
+          form_fill_fields: "Bitte füllen Sie alle Pflichtfelder aus.",
+          form_fill_contact:
+            "Bitte geben Sie mindestens eine Kontaktmethode an.",
           form_token_error:
             "Konfigurationsfehler: Ungültiges Telegram-Bot-Token oder Chat-ID.",
         },
@@ -665,28 +748,67 @@
         const form = document.getElementById("tg-form");
         const messageDiv = document.getElementById("form-message");
 
-        form.addEventListener("submit", async (e) => {
+        form.addEventListener("submit", function (e) {
           e.preventDefault();
-          const data = new FormData(form);
-          const payload = {
-            name: data.get("name"),
-            email: data.get("email"),
-            idea: data.get("idea"),
-          };
-          try {
-            const response = await fetch("/api/send", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload),
-            });
-            if (response.ok) {
-              alert("Request sent! Expect tips soon.");
-            } else {
-              alert("Error sending request.");
-            }
-          } catch (error) {
-            alert("Error: " + error.message);
+
+          const name = document.getElementById("name").value;
+          const idea = document.getElementById("idea").value;
+          const email = document.getElementById("email").value;
+          const phone = document.getElementById("phone").value;
+          const telegram = document.getElementById("telegram").value;
+          const other_contact = document.getElementById("other_contact").value;
+          const preferred_contact =
+            document.getElementById("preferred_contact").value;
+
+          if (!name || !idea) {
+            messageDiv.textContent = translations[currentLang].form_fill_fields;
+            messageDiv.className = "mt-4 text-yellow-400";
+            return;
           }
+
+          if (!email && !phone && !telegram && !other_contact) {
+            messageDiv.textContent =
+              translations[currentLang].form_fill_contact;
+            messageDiv.className = "mt-4 text-yellow-400";
+            return;
+          }
+
+          const params = {
+            lang: currentLang,
+            name,
+            email,
+            phone,
+            telegram,
+            other_contact,
+            preferred_contact,
+            idea,
+          };
+
+          messageDiv.textContent = "Отправка...";
+          messageDiv.className = "mt-4 text-gray-400";
+
+          fetch("/api/send", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(params),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.ok) {
+                messageDiv.textContent = translations[currentLang].form_success;
+                messageDiv.className = "mt-4 text-green-400";
+                form.reset();
+              } else {
+                throw new Error(data.description);
+              }
+            })
+            .catch((error) => {
+              console.error("Error sending message to Telegram:", error);
+              messageDiv.textContent = translations[currentLang].form_error;
+              messageDiv.className = "mt-4 text-red-500";
+            });
         });
 
         // --- Hero Canvas Animation ---

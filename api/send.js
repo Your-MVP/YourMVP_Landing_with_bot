@@ -7,8 +7,27 @@ module.exports = async (req, res) => {
     return res.status(405).send('Method Not Allowed');
   }
 
-  const { name, email, idea } = req.body;
-  const message = `New MVP Request:\nName: ${name}\nEmail: ${email}\nIdea: ${idea}`;
+  const {
+    lang,
+    name,
+    email,
+    phone,
+    telegram,
+    other_contact,
+    preferred_contact,
+    idea,
+  } = req.body;
+  const message =
+    `🚀 Новая заявка на MVP!` +
+    `\n\n🌐 Язык: ${lang}` +
+    `\n\n👤 Имя: ${name}` +
+    `\n\n📞 Контакты:` +
+    `\n📧: ${email || "не указан"}` +
+    `\n📱: ${phone || "не указан"}` +
+    `\nTelegram: ${telegram || "не указан"}` +
+    `\n📡: ${other_contact || "не указан"}` +
+    `\n\n⭐ Предпочтительный способ связи: ${preferred_contact}` +
+    `\n\n💡 Идея:\n${idea}`;
 
   const token = process.env.TELEGRAM_TOKEN;
   const chatId = process.env.CHAT_ID;
