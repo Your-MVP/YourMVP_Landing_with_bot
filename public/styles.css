@@ -1,16 +1,29 @@
-body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; color: #333; position: relative; }
-#particles-js { position: absolute; width: 100%; height: 100%; background: #007BFF; }
-header { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.9); padding: 10px; display: flex; justify-content: space-between; }
-.logo { font-weight: bold; font-size: 1.5em; }
-section { padding: 50px 20px; text-align: center; }
-.hero { background: transparent; color: white; padding-top: 100px; }
-.btn { background: #28A745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
-.benefits { display: flex; justify-content: space-around; margin: 20px 0; }
-.benefits div { background: #f0f0f0; padding: 20px; border-radius: 5px; width: 30%; }
-table { margin: 0 auto; border-collapse: collapse; }
-th, td { border: 1px solid #ddd; padding: 8px; }
-th { background: #007BFF; color: white; }
-form { max-width: 600px; margin: 0 auto; }
-input, textarea { width: 100%; margin: 10px 0; padding: 10px; }
-button { background: #28A745; color: white; border: none; padding: 10px 20px; cursor: pointer; }
-@media (max-width: 768px) { .benefits { flex-direction: column; } .benefits div { width: 100%; margin: 10px 0; } }
+body {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+#hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-effect {
+  box-shadow: 0 0 15px rgba(79, 70, 229, 0.5), 0 0 30px rgba(167, 139, 250, 0.4);
+}
+
+.feature-card,
+.testimonial-card {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
